@@ -30,7 +30,7 @@ export interface Props {
   title: string;
   author: string;
   slug: string;
-  date?: Date;
+  date?: Date | string;
 }
 const props = defineProps<Props>();
 

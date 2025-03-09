@@ -30,9 +30,20 @@
         <v-btn variant="outlined" :to="'/editor/' + slug">Update</v-btn>
       </v-col>
       <v-col cols="auto">
-        <v-btn color="red-lighten-2" variant="outlined" @click="remove">
-          Delete
-        </v-btn>
+        <v-tooltip>
+          <template #activator="{ props }">
+            <v-btn
+              color="red-lighten-2"
+              variant="outlined"
+              @click="remove"
+              v-bind="props"
+            >
+              Delete
+            </v-btn>
+          </template>
+
+          Delete this blog post
+        </v-tooltip>
       </v-col>
     </v-row>
   </v-container>
