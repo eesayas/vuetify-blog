@@ -12,7 +12,7 @@
       variant="tonal"
       color="success"
       class="mb-3"
-      v-if="success"
+      v-if="updated"
       closable
     >
       Successfully updated!
@@ -70,7 +70,7 @@ const remove = async () => {
   router.replace("/?deleted");
 };
 
-const success = computed(() => route.query["success"] !== undefined);
+const updated = computed(() => route.query["updated"] !== undefined);
 
 const items = [
   {

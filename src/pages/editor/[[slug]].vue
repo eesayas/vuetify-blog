@@ -97,7 +97,7 @@ const create = () => {
     title: title.value,
     text: text.value,
     author: author.value,
-    date: new Date(),
+    date: date.value,
     slug: slug.value,
   });
 
@@ -123,7 +123,7 @@ const update = async () => {
     slug: slug.value,
   });
 
-  router.replace(`/${slug.value}?success`);
+  router.replace(`/${slug.value}?updated`);
 };
 
 const onSubmit = async () => {
