@@ -67,7 +67,7 @@ const remove = async () => {
   if (!response) return;
 
   useBlogStore().remove(slug.value);
-  router.replace("/");
+  router.replace("/?deleted");
 };
 
 const success = computed(() => route.query["success"] !== undefined);

@@ -2,6 +2,16 @@
   <!-- Search Bar & Create Button -->
 
   <v-container>
+    <v-alert
+      variant="tonal"
+      color="success"
+      class="mb-3"
+      closable
+      v-if="deleted"
+    >
+      Successfully deleted!
+    </v-alert>
+
     <v-text-field
       placeholder="Search blogs"
       variant="solo"
@@ -64,6 +74,9 @@ const filteredBlogs = computed(() => (term: string = "", page?: number) => {
   }
   return data;
 });
+
+const route = useRoute();
+const deleted = computed(() => route.query["deleted"] !== undefined);
 
 const seed = () => {
   useData().seed();
