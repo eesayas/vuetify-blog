@@ -13,8 +13,10 @@
 </template>
 
 <script setup lang="ts">
-const date = defineModel<Date>({ default: new Date() });
+const date = defineModel<Date | string>({ default: new Date() });
 
 const dateUtils = useDate();
-const formattedDate = computed(() => dateUtils.format(date.value, "fullDate"));
+const formattedDate = computed(() =>
+  dateUtils.format(new Date(date.value), "fullDate")
+);
 </script>

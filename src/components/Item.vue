@@ -14,7 +14,11 @@
         </v-card-title>
 
         <v-card-text class="d-flex flex-column justify-end">
-          <div class="mt-auto text-grey-darken-1">By {{ author }}</div>
+          <div class="mt-auto text-grey-darken-1 d-flex">
+            <div>By {{ author }}</div>
+            <v-spacer></v-spacer>
+            <div>{{ date }}</div>
+          </div>
         </v-card-text>
       </v-card>
     </template>
@@ -26,9 +30,14 @@ export interface Props {
   title: string;
   author: string;
   slug: string;
+  date?: Date;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
+
 const color = computed(
   () => (hovering: boolean) => hovering ? "grey-darken-3" : "grey-darken-4"
 );
+
+const dateUtils = useDate();
+const date = dateUtils.format(props.date, "fullDate");
 </script>

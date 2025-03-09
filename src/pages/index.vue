@@ -16,6 +16,9 @@
       </template>
     </v-text-field>
 
+    <div>Want sample data? <a href="#" @click="seed">Seed Data</a></div>
+    <br />
+
     <!-- Grid w/ Pagination -->
     <Grid v-if="filteredBlogs(term, page).length">
       <Item
@@ -24,6 +27,7 @@
         :title="blog.title"
         :author="blog.author"
         :slug="blog.slug"
+        :date="blog.date"
       />
     </Grid>
     <div v-else>No blogs to display</div>
@@ -46,16 +50,22 @@ const term = ref<string>("");
 
 // Pagination
 const page = ref<number>(1);
-const itemsPerPage = 10;
+const itemsPerPage = 8;
 
 const length = computed(() => Math.ceil(blogs.value.length / itemsPerPage));
 
 const filteredBlogs = computed(() => (term: string = "", page?: number) => {
-  const data = blogs.value.filter((blog) => blog.title.includes(term));
+  const data = blogs.value.filter((blog) =>
+    blog.title.toLowerCase().includes(term.toLowerCase())
+  );
 
   if (page) {
     return data.slice((page - 1) * itemsPerPage, itemsPerPage * page);
   }
   return data;
 });
+
+const seed = () => {
+  useData().seed();
+};
 </script>

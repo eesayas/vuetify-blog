@@ -139,14 +139,16 @@ const onSubmit = async () => {
   }
 };
 
-const { blog } = storeToRefs(useBlogStore());
-
 onMounted(() => {
   if (!id.value) return;
   mode.value = "Edit";
 
-  title.value = blog.value(id.value)?.title!;
-  text.value = blog.value(id.value)?.text!;
-  author.value = blog.value(id.value)?.author!;
+  const blog = useBlogStore().blog(id.value);
+  if (!blog) return;
+
+  title.value = blog.title;
+  text.value = blog.text;
+  author.value = blog.author;
+  date.value = blog.date;
 });
 </script>
