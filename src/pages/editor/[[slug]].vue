@@ -61,7 +61,7 @@ const slug = ref<string>("");
 const text = ref<string>("");
 const author = ref<string>("");
 
-const date = ref<Date>();
+const date = ref<Date>(new Date());
 
 const mode = ref<"Create" | "Edit">("Create");
 

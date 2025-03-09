@@ -2,7 +2,7 @@ export interface Blog {
   title: string;
   text: string;
   author: string;
-  date?: Date;
+  date: Date;
   slug: string;
 }
 
@@ -21,7 +21,6 @@ export const useBlogStore = defineStore("blog", () => {
 
   // DELETE
   const remove = (slug: string) => {
-    console.log(slug);
     blogs.value = blogs.value.filter((blog) => blog.slug !== slug);
   };
 
