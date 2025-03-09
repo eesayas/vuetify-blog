@@ -25,8 +25,11 @@ export default defineConfig({
           "vue-router/auto": ["useRoute", "useRouter"],
         },
         "pinia",
+        {
+          vuetify: ["useDate"],
+        },
       ],
-      dirs: ["src/stores/**", "src/plugins/**"],
+      dirs: ["src/stores/**", "src/plugins/**", "src/composables/**"],
       dts: "src/auto-imports.d.ts",
       eslintrc: {
         enabled: true,
