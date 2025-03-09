@@ -4,6 +4,7 @@ const key = "VUETIFY_BLOG_ISAIAS";
 
 export const PersistStorage = (context: PiniaPluginContext) => {
   const data = localStorage.getItem(key);
+  console.log("sup");
 
   if (data) {
     context.store.$patch(JSON.parse(data));

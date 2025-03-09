@@ -2,4 +2,4 @@
 const pinia = createPinia();
 pinia.use(PersistStorage);
 
-export default createPinia();
+export default pinia;
