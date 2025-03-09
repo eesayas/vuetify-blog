@@ -1,4 +1,5 @@
-// Utilities
-import { createPinia } from "pinia";
+// Init pinia & use custom persist storage plugin
+const pinia = createPinia();
+pinia.use(PersistStorage);
 
 export default createPinia();

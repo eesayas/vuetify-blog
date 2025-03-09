@@ -11,7 +11,7 @@
       density="compact"
     >
       <template #append>
-        <v-btn size="large">Create</v-btn>
+        <v-btn to="/editor">Create</v-btn>
       </template>
     </v-text-field>
 
@@ -54,9 +54,5 @@ const filteredBlogs = computed(() => (term: string = "", page?: number) => {
     return data.slice((page - 1) * itemsPerPage, itemsPerPage * page);
   }
   return data;
-});
-
-onMounted(() => {
-  useBlogStore().fetchBlogs();
 });
 </script>
