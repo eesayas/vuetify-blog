@@ -1,59 +1,57 @@
 <template>
-  <v-container>
-    <v-breadcrumbs :items="items"></v-breadcrumbs>
+  <v-breadcrumbs :items="items"></v-breadcrumbs>
 
-    <v-form @submit.prevent="onSubmit" ref="form">
-      <v-text-field
-        v-model="title"
-        label="Title"
-        :rules="rules"
-        class="mb-3"
-      ></v-text-field>
+  <v-form @submit.prevent="onSubmit" ref="form">
+    <v-text-field
+      v-model="title"
+      label="Title"
+      :rules="rules"
+      class="mb-3"
+    ></v-text-field>
 
-      <Slug v-model="slug" :title="title" class="mb-3" />
+    <Slug v-model="slug" :title="title" class="mb-3" />
 
-      <v-textarea
-        v-model="text"
-        label="Text"
-        :rules="rules"
-        class="mb-3"
-      ></v-textarea>
+    <v-textarea
+      v-model="text"
+      label="Text"
+      :rules="rules"
+      class="mb-3"
+    ></v-textarea>
 
-      <v-text-field
-        v-model="author"
-        label="Author"
-        :rules="rules"
-        class="mb-3"
-      ></v-text-field>
+    <v-text-field
+      v-model="author"
+      label="Author"
+      :rules="rules"
+      class="mb-3"
+    ></v-text-field>
 
-      <DatePicker v-model="date" />
+    <DatePicker v-model="date" />
 
-      <v-row>
-        <v-col cols="auto">
-          <v-btn
-            variant="tonal"
-            color="success"
-            type="submit"
-            v-if="mode === 'Create'"
-          >
-            Submit
-          </v-btn>
-          <v-btn
-            variant="tonal"
-            color="primary"
-            v-if="mode === 'Edit'"
-            type="submit"
-            @click="update"
-          >
-            Update
-          </v-btn>
-        </v-col>
-        <v-col cols="auto">
-          <v-btn :to="'/' + id" replace> Cancel</v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
-  </v-container>
+    <v-row>
+      <v-col cols="auto">
+        <v-btn
+          variant="tonal"
+          color="success"
+          type="submit"
+          v-if="mode === 'Create'"
+        >
+          Submit
+        </v-btn>
+        <v-btn
+          variant="tonal"
+          color="primary"
+          v-if="mode === 'Edit'"
+          type="submit"
+          @click="update"
+        >
+          Update
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn :to="'/' + id" replace> Cancel</v-btn>
+      </v-col>
+    </v-row>
+  </v-form>
 </template>
 
 <script lang="ts" setup>
