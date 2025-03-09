@@ -106,7 +106,10 @@ const create = () => {
 
 const { confirm } = useConfirm();
 
-const id = useParams("slug");
+const route = useRoute();
+const params = route.params as Record<string, string>;
+
+const id = computed(() => params.slug);
 
 const update = async () => {
   const response = await confirm("This will update the blog.");

@@ -13,13 +13,16 @@ const slug = defineModel<string>();
 
 const { blog } = storeToRefs(useBlogStore());
 
+const route = useRoute();
+const params = route.params as Record<string, string>;
+
 const rules = computed(() => [
   (value: string) => {
     if (value) return true;
     return "This field is required";
   },
   (value: string) => {
-    if (!blog.value(value) || value === useParams("id").value) return true;
+    if (!blog.value(value) || value === params.slug) return true;
     return "Slug must be unique";
   },
 ]);

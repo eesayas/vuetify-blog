@@ -39,7 +39,10 @@
 </template>
 
 <script lang="ts" setup>
-const slug = useParams("slug");
+const route = useRoute();
+const params = route.params as Record<string, string>;
+
+const slug = computed(() => params.slug);
 
 const { blog } = storeToRefs(useBlogStore());
 const { confirm } = useConfirm();
@@ -56,7 +59,6 @@ const remove = async () => {
   router.replace("/");
 };
 
-const route = useRoute();
 const success = computed(() => route.query["success"] !== undefined);
 
 const items = [

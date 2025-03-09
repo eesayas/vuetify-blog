@@ -4,7 +4,6 @@
     @click="goHome"
   >
     blab.
-
     <span class="font-weight-light text-subtitle-1">A Vuetify blog</span>
   </div>
 </template>

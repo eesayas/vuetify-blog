@@ -21,6 +21,7 @@ export const useBlogStore = defineStore("blog", () => {
 
   // DELETE
   const remove = (slug: string) => {
+    console.log(slug);
     blogs.value = blogs.value.filter((blog) => blog.slug !== slug);
   };
 
