@@ -26,7 +26,7 @@ export default defineConfig({
         },
         "pinia",
       ],
-      dirs: ["src/stores/**"],
+      dirs: ["src/stores/**", "src/plugins/**"],
       dts: "src/auto-imports.d.ts",
       eslintrc: {
         enabled: true,
